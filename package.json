@@ -1,0 +1,23 @@
+{
+  "name": "resolucion-matrices",
+  "version": "1.0.0",
+  "description": "Resuelve matrices mxn",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wasberth/resolucion-matrices.git"
+  },
+  "keywords": [
+    "resolucion",
+    "matrices"
+  ],
+  "author": "Wilberth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wasberth/resolucion-matrices/issues"
+  },
+  "homepage": "https://github.com/Wasberth/resolucion-matrices#readme"
+}
