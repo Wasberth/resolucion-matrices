@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Wasberth/resolucion-matrices/issues"
   },
-  "homepage": "https://github.com/Wasberth/resolucion-matrices#readme"
+  "homepage": "https://github.com/Wasberth/resolucion-matrices#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
