@@ -142,7 +142,7 @@ function validateJSON(json) {
                 for (let i = 0; i < this.mc.nVar + 1; i++) {
                     this.mc.matrix[ec][i] = this.mc.matrix[ec][i] / cGcd;
                 }
-                this.addT(`F<sub>${ec + 1}</sub>&nbsp;/&nbsp;${cGcd}&nbsp;&rarr;&nbsp;F<sub>${ec + 1}</sub><br>`);
+                this.addT(`(1/${cGcd})&nbsp;F<sub>${ec + 1}</sub>&nbsp;&rarr;&nbsp;F<sub>${ec + 1}</sub><br>`);
             }
             if (this.t !== "") {
                 this.appendStep();
@@ -164,16 +164,16 @@ function validateJSON(json) {
             if (rangeMatrix !== rangeAumMatrix) {
                 this.addT(`Calculando el rango:<br> R(M) = ${rangeMatrix} &ne; R(M*) = ${rangeAumMatrix}`);
                 this.appendT(false);
-                return 0;
+                return 0; // NO SOLUTIONS
             }
             if (rangeMatrix === rangeAumMatrix && rangeAumMatrix < this.mc.nVar) {
                 this.addT(`Calculando el rango:<br> R(M) = R(M*) = ${rangeMatrix} < #inc = ${this.mc.nVar}`);
                 this.appendStep(false);
-                return 1;
+                return 1; // INFINITAS SOLUCIONEs
             }
             this.addT(`Calculando el rango:<br> R(M) = R(M*) = #inc = ${rangeMatrix}`);
             this.appendStep(false);
-            return 2;
+            return 2; // UNA SOLA SOLUCION
         },
 
         addT: function(t) {

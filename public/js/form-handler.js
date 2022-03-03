@@ -19,7 +19,7 @@ function editForm() {
             };
 
             html = html + t +
-                `<input name="var-${i}-${j}" type="number" step="0.01" class="form-control" value="0" ${l}>`; // INPUT FOR j VAR IN i EC
+                `<input name="var-${i}-${j}" type="number" class="form-control" value="0" ${l}>`; // INPUT FOR j VAR IN i EC
         }
         html = html + // RES FOR i EC
             `<span class="input-group-text" id="label-res-${i}">x<sub>${variables}</sub>&nbsp;=</span>` +

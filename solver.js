@@ -27,7 +27,7 @@ function diagonalize(m) {
     let hasSolutions = m.calculateStatus();
 
     if (!hasSolutions) {
-        m.msg = "El sistema no tiene ecuaciones";
+        m.msg = "El sistema no tiene soluciones";
         return;
     }
 
@@ -54,15 +54,35 @@ function diagonalize(m) {
         let aMsg = "El sistema tiene infinitas soluciones, representadas de la siguiente manera:<br>";
 
         for (let ec = 0; ec < m.mc.nEc; ec++) {
-            aMsg = aMsg + `x<sub>${ec + 1}</sub>&nbsp;=&nbsp;(&nbsp;${m.mc.matrix[ec][m.mc.nVar]}&nbsp;`;
-            const freeVarQ = m.mc.nVar - m.mc.nEc + 1;
+            aMsg = aMsg + `x<sub>${ec + 1}</sub>&nbsp;=&nbsp;(${m.mc.matrix[ec][m.mc.nVar]}&nbsp;`;
+            /*const freeVarQ = m.mc.nVar - m.mc.nEc;
             let i = 1;
             for (let freeVar = m.mc.nVar - 1; freeVar >= freeVarQ; freeVar--) {
                 let varVal = m.mc.matrix[ec][freeVar] * (-1);
+
                 if (varVal === 0) { console.log(`Aparently ${varVal} === 0`); continue; }
+
                 aMsg = aMsg + `${varVal < 0 ? "-":"+"}&nbsp;${Math.abs(varVal) != 1? Math.abs(varVal) : ""}&lambda;<sub>${i}</sub>&nbsp;`;
                 i++;
+            }*/
+            const freeVarQ = m.mc.nVar - m.mc.nEc;
+
+            console.log(`FREEVARQ = ${freeVarQ}`);
+
+            for (let i = 0; i < freeVarQ; i++) {
+                console.log(`i: ${i}`);
+                let sub = i + 1;
+                let freeVarI = m.mc.nVar - i - 1;
+
+                console.log(`fvi: ${freeVarI}`);
+                let varVal = m.mc.matrix[ec][freeVarI] * (-1);
+
+                if (varVal === 0) { continue; }
+
+                aMsg = aMsg + `${varVal < 0 ? "-":"+"}&nbsp;${Math.abs(varVal) != 1? Math.abs(varVal) : ""}&lambda;<sub>${sub}</sub>&nbsp;`;
+
             }
+
             aMsg = aMsg + `)&nbsp;/&nbsp;${m.mc.matrix[ec][ec]}<br>`;
         }
 

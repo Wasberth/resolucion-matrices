@@ -16,7 +16,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 // PORT FOR LISTENING
-const port = process.env.PORT || 3000 /*25565*/;
+//const port = process.env.PORT || 3000;
+const port = 25565;
 
 // FROM POST METHOD CALCULATE
 app.post('/calculate', (req, res) => {
@@ -26,11 +27,6 @@ app.post('/calculate', (req, res) => {
     let m = matrixHandler.CreateIfValid(req.body);
     if (!m.isCorrect) { res.redirect('/'); return; }
 
-    m.appendStep();
-
-    for (let i = 0; i < m.mc.nEc; i++) {
-        m.multiplyRow(i, 100);
-    }
     m.appendStep();
     m.simplify();
     solver.diagonalize(m);
