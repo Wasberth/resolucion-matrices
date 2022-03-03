@@ -16,8 +16,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 // PORT FOR LISTENING
-//const port = process.env.PORT || 3000;
-const port = 25565;
+const port = process.env.PORT || 3000;
+//const port = 25565;
 
 // FROM POST METHOD CALCULATE
 app.post('/calculate', (req, res) => {
